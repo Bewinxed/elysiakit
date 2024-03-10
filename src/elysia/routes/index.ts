@@ -1,0 +1,1 @@
+export default (app: ElysiaApp) => app.get("", { niggas: "in paris" });
