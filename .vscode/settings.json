@@ -1,5 +1,6 @@
 {
     "explorer.compactFolders": false,
     "explorer.sortOrder": "filesFirst",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "prettier.configPath": ".prettierrc"
 }
