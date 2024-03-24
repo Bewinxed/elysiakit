@@ -10,6 +10,8 @@
     "svelteBracketNewLine": false,
     "svelteIndentScriptAndStyle": true,
     "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-svelte"],
+    "svelteSortOrder": "scripts-options-markup-styles",
+    "experimentalTernaries": true,
     "overrides": [
         {
             "files": ["*.svelte"],

@@ -2,30 +2,27 @@
 import swagger from "@elysiajs/swagger";
 import { Elysia, type RouteBase } from "elysia";
 import { autoload, type ElysiaWithBaseUrl } from "elysia-autoload";
+import path from "node:path";
 
-const prefix = "/api" as const;
-export const app = new Elysia({})
+export const app = new Elysia({
+	prefix: "/api",
+})
 	.use(
 		autoload({
-			prefix,
-			dir: "./routes",
+			// anything that is an index.ts or [something].ts (string arg)
+			pattern: "**/{index.ts,[[]*[]].ts}",
+			dir: path.resolve(process.cwd(), "src/routes/api/[...catchall]"),
+
 			types: {
-				output: "../lib/elysia/route-types.ts",
+				output: path.resolve(process.cwd(), "src/elysia/elysia-types.ts"),
 			},
 		}),
 	)
 	.use(
 		swagger({
-			path: `${prefix}/docs`,
+			path: "/docs",
 		}),
-	)
-	.onRequest(({ request, set }) => {
-		// FIX: For elysia-autoload, using swagger and elysia-autoload together causes double prefix, so we remove it
-		if (request.url.includes(`${prefix}${prefix}`)) {
-			set.redirect = request.url.replace(`${prefix}${prefix}`, prefix);
-			return request;
-		}
-	});
+	);
 
 declare global {
 	type ElysiaApp = typeof app;

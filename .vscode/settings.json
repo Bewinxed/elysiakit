@@ -2,5 +2,9 @@
     "explorer.compactFolders": false,
     "explorer.sortOrder": "filesFirst",
     "editor.formatOnSave": true,
-    "prettier.configPath": ".prettierrc"
+    "prettier.configPath": ".prettierrc",
+    "editor.inlayHints.enabled": "on",
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true
 }

@@ -4,7 +4,7 @@
     const eden = edenFetch<Routes>('http://127.0.0.1:5173', {
         fetcher: fetch,
     })
-    let result: RouteTypes<'/api/', 'get'>['response']
+    let result: RouteTypes<'/api/users/:id', 'get'>['response']
 </script>
 
 <svelte:head>
@@ -14,34 +14,71 @@
         content="Sveltekit + ElysiaJS + Tailwind + MeltUI Scaffold" />
 </svelte:head>
 
-<main class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-    <section class="flex flex-col items-center gap-8">
-        <div class="flex items-center gap-4">
-            <figure class="w-16 sm:w-24">
+<svelte:body class="bg-[#F1EFE7]" style="background-color: #F1EFE7;" />
+
+<main class="container flex flex-col mx-auto gap-4 px-4 py-12 sm:px-6 lg:px-8">
+    <section class="flex flex-col gap-8">
+        <div
+            class="flex flex-wrap place-items-center place-content-center gap-4">
+            <figure class="w-16 aspect-square sm:w-24">
                 <img
                     src="https://elysiajs.com/assets/elysia.svg"
                     alt="ElysiaJS Logo" />
             </figure>
             <Icon icon="carbon:add" class="text-4xl text-gray-400" />
-            <figure class="w-16 sm:w-24">
+            <figure class="w-16 aspect-square sm:w-24">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg"
                     alt="Sveltekit Logo" />
             </figure>
         </div>
-        <h1 class="text-center text-3xl sm:text-4xl">
+        <h1 class="text-5xl font-black font-mono">ElysiaKit</h1>
+        <h2 class="inline font-mono">A Sveltekit/ElysiaJS Scaffold</h2>
+        <h1 class="text-left text-3xl">
             <strong>TRUE</strong> End-To-End Type Safety with
             <a
+                class="link text-red-500"
                 href="https://svelte.dev"
                 target="_blank"
                 rel="noopener noreferrer">SvelteKit</a>
             and
             <a
+                class="link text-indigo-400"
                 href="https://elysiajs.com"
                 target="_blank"
                 rel="noopener noreferrer">ElysiaJS</a>
         </h1>
-        <div class="mx-auto max-w-3xl space-y-4 text-center text-lg">
+        <!-- github and npm links -->
+        <div class="flex gap-4">
+            <a
+                href="https://www.github.com/Bewinxed/elysiakit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline border-2">
+                <Icon icon="akar-icons:github-fill" class="w-6 h-6" />
+                Github
+            </a>
+            <a
+                href="https://www.npmjs.com/package/elysiakit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline border-2 hover:bg-red-500 hover-text-">
+                <Icon icon="akar-icons:npm-fill" class="w-6 h-6" />
+                NPM
+            </a>
+        </div>
+        <!-- get started! code block with git clone for above github link -->
+        <div
+            class="mockup-code w-full max-w-sm sm:max-w-full bg-transparent border-2 text-black border-black">
+            <pre data-prefix="$"><code
+                    >git clone https://www.github.com/Bewinxed/elysiakit</code></pre>
+            <pre data-prefix="$"><code>cd elysiakit</code></pre>
+            <pre data-prefix="$"><code>bun i</code></pre>
+        </div>
+    </section>
+    <section>
+        <h1 class="text-3xl font-bold">Why ElysiaKit?</h1>
+        <div class="mx-auto max-w-3xl space-y-4 text-left text-lg">
             <p>
                 People keep saying SvelteKit is end-to-end typesafe, which might
                 be true when relying on simple Server Actions and having some
@@ -52,12 +89,14 @@
             </p>
             <p>
                 <a
+                    class="link"
                     href="https://svetch-dev.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer">Svetch</a>
                 solves this to some extent, but it still leaves room for improvement.
                 That's where
                 <a
+                    class="link text-indigo-400"
                     href="https://elysiajs.com"
                     target="_blank"
                     rel="noopener noreferrer">ElysiaJS</a>
@@ -69,7 +108,7 @@
             <button
                 class="btn btn-primary"
                 on:click="{() => {
-                    const response = eden('/api/groups/:id', {
+                    const response = eden('/api/users/:id', {
                         method: 'PATCH',
                         params: {
                             id: 1,
@@ -81,10 +120,9 @@
                 }}">Fetch</button>
         </div>
     </section>
-    <div class="divider my-0"></div>
     <section class="flex flex-col place-content-start place-items-start gap-2">
         <!-- #features -->
-        <h2 class="text-center text-2xl font-bold">Features</h2>
+        <h1 class="text-3xl font-bold">Features</h1>
         <ul class="w-full list-inside list-disc space-y-2">
             <li class="list-item">
                 📖 Automatic API Docs via <a href="/api/docs" class="font-bold"
@@ -127,3 +165,9 @@
         </ul>
     </section>
 </main>
+
+<style>
+    :global(body) {
+        background-color: #f1efe7;
+    }
+</style>

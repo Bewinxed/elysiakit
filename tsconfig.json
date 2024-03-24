@@ -17,7 +17,6 @@
 		"moduleResolution": "Bundler",
 		"allowSyntheticDefaultImports": true,
 		"noEmit": true,
-		"paths": { "/*": ["./*"] }
 	},
 	"include": [
 		"src"
