@@ -1,9 +1,7 @@
 <script lang="ts">
-    import { edenFetch } from '@elysiajs/eden'
     import Icon from '@iconify/svelte'
-    const eden = edenFetch<Routes>('http://127.0.0.1:5173', {
-        fetcher: fetch,
-    })
+    import { eden } from 'src/lib/api/client'
+    const client = eden(fetch)
     let result: RouteTypes<'/api/users/:id', 'get'>['response']
 </script>
 
@@ -108,13 +106,11 @@
             <button
                 class="btn btn-primary"
                 on:click="{() => {
-                    const response = eden('/api/users/:id', {
-                        method: 'PATCH',
+                    const response = client.PATCH('/api/teams/{id}', {
                         params: {
-                            id: 1,
-                        },
-                        body: {
-                            name: 'new name',
+                            path: {
+                                id: 1,
+                            },
                         },
                     })
                 }}">Fetch</button>

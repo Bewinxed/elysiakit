@@ -3,6 +3,8 @@ import swagger from "@elysiajs/swagger";
 import { Elysia, type RouteBase } from "elysia";
 import { autoload, type ElysiaWithBaseUrl } from "elysia-autoload";
 import path from "node:path";
+import createClient from "openapi-fetch";
+import type { paths } from "../lib/api/api.d.ts";
 
 export const app = new Elysia({
 	prefix: "/api",
@@ -25,7 +27,7 @@ export const app = new Elysia({
 	);
 
 declare global {
-	type ElysiaApp = typeof app;
+	// type ElysiaApp = typeof app;
 	// type that takes key of ['schema'] and gets the return type
 	// Routes['schema']['/api/users/:id']['get']
 	type RouteTypes<
