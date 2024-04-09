@@ -106,7 +106,7 @@
             <button
                 class="btn btn-primary"
                 on:click="{() => {
-                    const response = client.PATCH('/api/teams/{id}', {
+                    const response = client.PATCH('/api/ayys/{id}', {
                         params: {
                             path: {
                                 id: 1,

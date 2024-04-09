@@ -14,11 +14,11 @@ export interface paths {
   "/api": {
     get: operations["getApi"];
   };
-  "/api/teams/{id}": {
-    patch: operations["patchApiTeamsById"];
-  };
   "/api/groups/{id}": {
     patch: operations["patchApiGroupsById"];
+  };
+  "/api/ayys/{id}": {
+    patch: operations["patchApiAyysById"];
   };
   "/api/users/{id}": {
     get: operations["getApiUsersById"];
@@ -64,7 +64,7 @@ export interface operations {
       };
     };
   };
-  patchApiTeamsById: {
+  patchApiGroupsById: {
     parameters: {
       path: {
         id: unknown;
@@ -89,7 +89,7 @@ export interface operations {
       };
     };
   };
-  patchApiGroupsById: {
+  patchApiAyysById: {
     parameters: {
       path: {
         id: unknown;
